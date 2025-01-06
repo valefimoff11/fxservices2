@@ -16,7 +16,7 @@ class TestSequence:
     @pytest.mark.dependency(name="test_get_the_latest_fx_rates")
     def test_get_the_latest_fx_rates(self):
 
-        fx_rates_service_uri = 'http://127.0.0.1:8000/all-latest-fx-rates'
+        fx_rates_service_uri = 'http://127.0.0.1:8000/v1/all-latest-fx-rates'
 
         resp = requests.get(url=fx_rates_service_uri)
         assert resp.status_code == 200
@@ -38,7 +38,7 @@ class TestSequence:
             from_cur = ct[0]
             to_cur = ct[1]
 
-            fx_conversion_service_uri = f"http://127.0.0.1:8000/converted-amount/?ccy_from={from_cur}&ccy_to={to_cur}&quantity={TestSequence.test_currency_quantity}"
+            fx_conversion_service_uri = f"http://127.0.0.1:8000/v1/converted-amount/?ccy_from={from_cur}&ccy_to={to_cur}&quantity={TestSequence.test_currency_quantity}"
 
             resp = requests.get(url=fx_conversion_service_uri)
             assert resp.status_code == 200

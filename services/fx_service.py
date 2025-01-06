@@ -84,13 +84,13 @@ async def read_root():
     with fx_rates_lock:
         return app.fx_rates.copy()
 
-@app.get("/all-current-fx-rates")
+@app.get("/v1/all-current-fx-rates")
 async def get_all_current_fx_rates():
 
     with fx_rates_lock:
         return app.fx_rates.copy()
 
-@app.get("/all-latest-fx-rates")
+@app.get("/v1/all-latest-fx-rates")
 async def get_all_latest_fx_rates():
 
     update_rates()
@@ -100,7 +100,7 @@ async def get_all_latest_fx_rates():
 
 
 #http://127.0.0.1:8000/converted-amount/?ccy_from=USD&ccy_to=GBP&quantity=1000
-@app.get("/converted-amount/")
+@app.get("/v1/converted-amount/")
 async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
 
     #validate the input parameters
