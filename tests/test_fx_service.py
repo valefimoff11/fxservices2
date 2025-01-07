@@ -54,4 +54,18 @@ class TestSequence:
 
             assert round(float(fx_rate) * TestSequence.test_currency_quantity, 2) == float(converted_quantity_response["quantity"])
 
+    @pytest.mark.dependency(name="test_cur_conversion")
+    def test_invalid_input_params(self):
 
+        #deliberatly misformatted param
+        from_cur = "GB"
+        to_cur = "USD"
+
+        fx_conversion_service_uri = f"http://127.0.0.1:8000/v1/converted-amount/?ccy_from={from_cur}&ccy_to={to_cur}&quantity={TestSequence.test_currency_quantity}"
+
+        resp = requests.get(url=fx_conversion_service_uri)
+        assert resp.status_code == 200
+
+        converted_quantity_response = resp.json()
+
+        assert converted_quantity_response["error"] == 3
