@@ -3,7 +3,6 @@ from enum import Enum
 from threading import Lock
 import requests
 from fastapi import FastAPI
-
 import logging
 
 logging.basicConfig()
