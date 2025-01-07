@@ -8,6 +8,17 @@ The service is using near-real-time FX rates that are derived from the CoinDesk 
 (https://api.coindesk.com/v1/bpi/currentprice.json). This service provides real-time bitcoin prices in 3
 currencies (USD, EUR, GBP). FX rates are derived e.g. as EUR/USD = BPI_USD/BPI_EUR. 
 
+**Error conditions, error messages and codes returned by the service:**
+
+    FX_RATES_SERVICE_ERROR = 1
+    INVALID_INPUT_PARAMETERS = 3
+
+Error Condition - Invalid Input Parameters:
+{"error": ErrorCodes.INVALID_INPUT_PARAMETERS}
+
+Error Condition - The FX Rates in the LOcal Cache are stale and when tried was unable to obtain the latest FX Rates from the CoinDesk Service:
+{"error": ErrorCodes.FX_RATES_SERVICE_ERROR }
+
 The Currency Converter Service implementation is based on the FastAPI framework
 
 Data Caching Capabilities of the service - Because it is safe to assume that FX rates are changing once an hour, there is opportunity to supply the service with 
