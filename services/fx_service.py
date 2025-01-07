@@ -20,6 +20,7 @@ fx_rates_lock = Lock()
 class ErrorCodes(Enum):
     FX_RATES_SERVICE_ERROR = 1
     FX_RATES_UPDATED = 2
+    INVALID_INPUT_PARAMETERS = 3
 
 def update_rates():
 
@@ -142,4 +143,4 @@ async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
     else:
         #if incorrect input parameters submitted to the service, then return json with blank attribute values
         logging.info("incorrect input parameter values")
-        return {"quantity": "", "ccy":""}
+        return {"error": ErrorCodes.INVALID_INPUT_PARAMETERS}
