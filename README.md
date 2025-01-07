@@ -10,6 +10,7 @@ currencies (USD, EUR, GBP). FX rates are derived e.g. as EUR/USD = BPI_USD/BPI_E
 
 **Error conditions, error messages and codes returned by the service:**
 
+ErrorCodes:
     FX_RATES_SERVICE_ERROR = 1
     INVALID_INPUT_PARAMETERS = 3
 
