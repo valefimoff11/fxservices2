@@ -57,7 +57,7 @@ class TestSequence:
     @pytest.mark.dependency(name="test_cur_conversion")
     def test_invalid_input_params(self):
 
-        #deliberatly misformatted param
+        #deliberatly misformatted service input params
         from_cur = "GB"
         to_cur = ""
         invalid_quantity = 0
