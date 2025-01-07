@@ -99,7 +99,7 @@ async def get_all_latest_fx_rates():
         return app.fx_rates.copy()
 
 
-#http://127.0.0.1:8000/converted-amount/?ccy_from=USD&ccy_to=GBP&quantity=1000
+#http://127.0.0.1:8000/v1/converted-amount/?ccy_from=USD&ccy_to=GBP&quantity=1000
 @app.get("/v1/converted-amount/")
 async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
 
