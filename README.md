@@ -16,7 +16,7 @@ that time period, thus avoiding to call each time the remote CoinDesk service fo
 
 There are two architecture options for data caching for this service:
 
-**a) Local Caching**
+**a) Local Data Caching**
 
 This is currently implemented within each FastAPI Worker instance of the service (and hence the name "local" cache ie a cache bound/individual to each worker instance)
 
@@ -34,7 +34,7 @@ operations of dictionary are threadsafe
 Finally, despite all of the above analysis which demonstrates that a dictionary based, local data cache implementation is threadsafe for both end point flavours of FastAPI, 
 the service implements a Lock based access to the data cache for futureproof evolution of the product and to demonstrate methods for threadsafe access to shared data structures
 
-**b) Global Caching**
+**b) Global Data Caching**
 
 for Global Cache shared between all FastAPI Worker Instances (each Worker is a separate OS Process, which can run on the same or different server machine)
 the solution can use Reddis and specifically Reddis with local cache deployment and use 
