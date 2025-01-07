@@ -19,25 +19,30 @@ fx_rates_lock = Lock()
 
 def update_rates():
 
-    r = requests.get(url=coindesk_service_uri).json()
+    raw_resp = requests.get(url=coindesk_service_uri)
 
-    for d in r["bpi"]:
+    if raw_resp.status_code != 200:
+        return "FX_RATES_SERVICE_ERROR"
+    else:
+        r = raw_resp.json()
 
-        cur = r["bpi"][d]
+        for d in r["bpi"]:
 
-        logging.info(cur)
-        logging.info(cur)
-        logging.info(cur["code"])
-        logging.info(cur["rate_float"])
+            cur = r["bpi"][d]
 
-        if cur["code"] == "USD":
-            bpi_usd = float(cur["rate_float"])
+            logging.info(cur)
+            logging.info(cur)
+            logging.info(cur["code"])
+            logging.info(cur["rate_float"])
 
-        if cur["code"] == "EUR":
-            bpi_eur = float(cur["rate_float"])
+            if cur["code"] == "USD":
+                bpi_usd = float(cur["rate_float"])
 
-        if cur["code"] == "GBP":
-            bpi_gbp = float(cur["rate_float"])
+            if cur["code"] == "EUR":
+                bpi_eur = float(cur["rate_float"])
+
+            if cur["code"] == "GBP":
+                bpi_gbp = float(cur["rate_float"])
 
     # acquire the lock
     with fx_rates_lock:
@@ -63,19 +68,29 @@ def update_rates():
 
     logging.info(app.fx_rates)
 
+    return "FX_RATES_UPDATED"
 
 def check_cache_staleness():
 
     if app.latest_update_timestamp is None:
-        update_rates()
-        app.latest_update_timestamp = time.time()
+        update_status =  update_rates()
+        if update_status == "FX_RATES_SERVICE_ERROR":
+            return update_status
+        else:
+            app.latest_update_timestamp = time.time()
+            return "FX_RATES_UPDATED"
     else:
         ct = time.time()
         elapsed_time = ct - app.latest_update_timestamp
         logging.info('Elapsed time:', elapsed_time, 'seconds')
 
         if elapsed_time >= 3600:
-            update_rates()
+            update_status = update_rates()
+            if update_status == "FX_RATES_SERVICE_ERROR":
+                return update_status
+            app.latest_update_timestamp = time.time()
+
+        return "FX_RATES_UPDATED"
 
 
 @app.get("/")
@@ -106,7 +121,10 @@ async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
     #validate the input parameters
     if ccy_from in app.currencies and ccy_to in app.currencies and quantity > 0:
 
-        check_cache_staleness()
+        cache_state = check_cache_staleness()
+
+        if cache_state != "FX_RATES_UPDATED":
+            return {"error": cache_state}
 
         cur_pair = ccy_from + "_" + ccy_to
 
