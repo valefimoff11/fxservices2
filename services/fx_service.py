@@ -1,4 +1,5 @@
 import time
+from enum import Enum
 from threading import Lock
 import requests
 from fastapi import FastAPI
@@ -17,12 +18,16 @@ coindesk_service_uri = 'https://api.coindesk.com/v1/bpi/currentprice.json'
 
 fx_rates_lock = Lock()
 
+class ErrorCodes(Enum):
+    FX_RATES_SERVICE_ERROR = 1
+    FX_RATES_UPDATED = 2
+
 def update_rates():
 
     raw_resp = requests.get(url=coindesk_service_uri)
 
     if raw_resp.status_code != 200:
-        return "FX_RATES_SERVICE_ERROR"
+        return ErrorCodes.FX_RATES_SERVICE_ERROR
     else:
         r = raw_resp.json()
 
@@ -68,17 +73,17 @@ def update_rates():
 
     logging.info(app.fx_rates)
 
-    return "FX_RATES_UPDATED"
+    return ErrorCodes.FX_RATES_UPDATED
 
 def check_cache_staleness():
 
     if app.latest_update_timestamp is None:
         update_status =  update_rates()
-        if update_status == "FX_RATES_SERVICE_ERROR":
+        if update_status == ErrorCodes.FX_RATES_SERVICE_ERROR:
             return update_status
         else:
             app.latest_update_timestamp = time.time()
-            return "FX_RATES_UPDATED"
+            return ErrorCodes.FX_RATES_UPDATED
     else:
         ct = time.time()
         elapsed_time = ct - app.latest_update_timestamp
@@ -86,11 +91,11 @@ def check_cache_staleness():
 
         if elapsed_time >= 3600:
             update_status = update_rates()
-            if update_status == "FX_RATES_SERVICE_ERROR":
+            if update_status == ErrorCodes.FX_RATES_SERVICE_ERROR:
                 return update_status
             app.latest_update_timestamp = time.time()
 
-        return "FX_RATES_UPDATED"
+        return ErrorCodes.FX_RATES_UPDATED
 
 
 @app.get("/")
@@ -123,7 +128,7 @@ async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
 
         cache_state = check_cache_staleness()
 
-        if cache_state != "FX_RATES_UPDATED":
+        if cache_state != ErrorCodes.FX_RATES_UPDATED:
             return {"error": cache_state}
 
         cur_pair = ccy_from + "_" + ccy_to
