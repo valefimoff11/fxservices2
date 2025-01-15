@@ -1,3 +1,4 @@
+import asyncio
 import time
 from enum import Enum
 from threading import Lock
@@ -18,7 +19,8 @@ app.coindesk_session = None
 
 coindesk_service_uri = 'https://api.coindesk.com/v1/bpi/currentprice.json'
 
-fx_rates_lock = Lock()
+#fx_rates_lock = Lock()
+fx_rates_lock = asyncio.Lock()
 
 class ErrorCodes(Enum):
     FX_RATES_SERVICE_ERROR = 1
@@ -66,7 +68,7 @@ async def update_rates():
                 bpi_gbp = float(cur["rate_float"])
 
     # acquire the lock
-    with fx_rates_lock:
+    async with fx_rates_lock:
 
         app.fx_rates["BPI_USD"] = bpi_usd
         app.fx_rates["USD_BPI"] = 1/bpi_usd
@@ -110,13 +112,13 @@ def check_cache_staleness():
 @app.get("/")
 async def read_root():
 
-    with fx_rates_lock:
+    async with fx_rates_lock:
         return app.fx_rates.copy()
 
 @app.get("/v1/all-current-fx-rates")
 async def get_all_current_fx_rates():
 
-    with fx_rates_lock:
+    async with fx_rates_lock:
         return app.fx_rates.copy()
 
 @app.get("/v1/all-latest-fx-rates")
@@ -124,7 +126,7 @@ async def get_all_latest_fx_rates():
 
     await update_rates()
 
-    with fx_rates_lock:
+    async with fx_rates_lock:
         return app.fx_rates.copy()
 
 
@@ -147,7 +149,7 @@ async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
 
         cur_pair = ccy_from + "_" + ccy_to
 
-        with fx_rates_lock:
+        async with fx_rates_lock:
             fx_rate = app.fx_rates[cur_pair]
 
         converted_quantity = round(quantity * fx_rate, 2)
