@@ -29,21 +29,23 @@ class ErrorCodes(Enum):
 # However, in reality, this could result in the CoindDesk service getting called several times in a quick succession and hence in less performance optimization
 async def update_rates():
 
-    #if app.coindesk_session is None:
-    #    app.coindesk_session = aiohttp.ClientSession()
-    #r = await app.coindesk_session.get(coindesk_service_uri)
-    #print(r.json())
-
     logging.info("Invoking the external Coind Desk REST API")
 
-    async with aiohttp.ClientSession() as session:
-        async with session.get(coindesk_service_uri) as response:
-            json_body = await response.json()
-        print(json_body)
+    #the async http client session is cached to reuse its Thread Pool
+    if app.coindesk_session is None:
+        app.coindesk_session = aiohttp.ClientSession()
+    response = await app.coindesk_session.get(coindesk_service_uri)
+
+    #alternative way to invoke the http client without caching
+    #async with aiohttp.ClientSession() as session:
+    #    async with session.get(coindesk_service_uri) as response:
+    #        json_body = await response.json()
+    #    print(json_body)
 
     if response.status != 200:
         return ErrorCodes.FX_RATES_SERVICE_ERROR
     else:
+        json_body = await response.json()
 
         for d in json_body["bpi"]:
 
@@ -98,7 +100,7 @@ def check_cache_staleness():
 
     ct = time.time()
     elapsed_time = ct - app.latest_update_timestamp
-    logging.info(f'Elapsed time: {elapsed_time} seconds')
+    logging.info(f'Elapsed time since last cache update: {elapsed_time} seconds')
 
     if elapsed_time >= 3600:
         return True
