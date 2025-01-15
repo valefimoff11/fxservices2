@@ -40,6 +40,8 @@ class TestSequence:
 
             fx_conversion_service_uri = f"http://127.0.0.1:8000/v1/converted-amount/?ccy_from={from_cur}&ccy_to={to_cur}&quantity={TestSequence.test_currency_quantity}"
 
+            print(fx_conversion_service_uri)
+
             resp = requests.get(url=fx_conversion_service_uri)
             assert resp.status_code == 200
 

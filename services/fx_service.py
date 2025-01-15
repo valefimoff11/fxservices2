@@ -1,6 +1,8 @@
 import time
 from enum import Enum
 from threading import Lock
+
+import aiohttp
 import requests
 from fastapi import FastAPI
 import logging
@@ -12,6 +14,7 @@ app = FastAPI()
 app.fx_rates = {}
 app.latest_update_timestamp = None
 app.currencies = {"USD", "EUR", "GBP", "BPI"}
+app.coindesk_session = None
 
 coindesk_service_uri = 'https://api.coindesk.com/v1/bpi/currentprice.json'
 
@@ -22,18 +25,29 @@ class ErrorCodes(Enum):
     FX_RATES_UPDATED = 2
     INVALID_INPUT_PARAMETERS = 3
 
-def update_rates():
+# Note: this function is defined as async to demonstrate the overall approach for interatcing with IO intensive external services
+# However, in reality, this could result in the CoindDesk service getting called several times in a quick succession and hence in less performance optimization
+async def update_rates():
 
-    raw_resp = requests.get(url=coindesk_service_uri)
+    #if app.coindesk_session is None:
+    #    app.coindesk_session = aiohttp.ClientSession()
+    #r = await app.coindesk_session.get(coindesk_service_uri)
+    #print(r.json())
 
-    if raw_resp.status_code != 200:
+    logging.info("Invoking the external Coind Desk REST API")
+
+    async with aiohttp.ClientSession() as session:
+        async with session.get(coindesk_service_uri) as response:
+            json_body = await response.json()
+        print(json_body)
+
+    if response.status != 200:
         return ErrorCodes.FX_RATES_SERVICE_ERROR
     else:
-        r = raw_resp.json()
 
-        for d in r["bpi"]:
+        for d in json_body["bpi"]:
 
-            cur = r["bpi"][d]
+            cur = json_body["bpi"][d]
 
             logging.info(cur)
             logging.info(cur)
@@ -71,6 +85,8 @@ def update_rates():
         app.fx_rates["EUR_GBP"] = bpi_gbp/bpi_eur
         app.fx_rates["GBP_EUR"] = bpi_eur/bpi_gbp
 
+    app.latest_update_timestamp = time.time()
+
     logging.info(app.fx_rates)
 
     return ErrorCodes.FX_RATES_UPDATED
@@ -78,25 +94,16 @@ def update_rates():
 def check_cache_staleness():
 
     if app.latest_update_timestamp is None:
-        update_status =  update_rates()
-        if update_status == ErrorCodes.FX_RATES_SERVICE_ERROR:
-            return update_status
-        else:
-            app.latest_update_timestamp = time.time()
-            return ErrorCodes.FX_RATES_UPDATED
+        return True
+
+    ct = time.time()
+    elapsed_time = ct - app.latest_update_timestamp
+    logging.info(f'Elapsed time: {elapsed_time} seconds')
+
+    if elapsed_time >= 3600:
+        return True
     else:
-        ct = time.time()
-        elapsed_time = ct - app.latest_update_timestamp
-        logging.info('Elapsed time:', elapsed_time, 'seconds')
-
-        if elapsed_time >= 3600:
-            update_status = update_rates()
-            if update_status == ErrorCodes.FX_RATES_SERVICE_ERROR:
-                return update_status
-            app.latest_update_timestamp = time.time()
-
-        return ErrorCodes.FX_RATES_UPDATED
-
+        return False
 
 @app.get("/")
 async def read_root():
@@ -113,7 +120,7 @@ async def get_all_current_fx_rates():
 @app.get("/v1/all-latest-fx-rates")
 async def get_all_latest_fx_rates():
 
-    update_rates()
+    await update_rates()
 
     with fx_rates_lock:
         return app.fx_rates.copy()
@@ -126,10 +133,15 @@ async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
     #validate the input parameters
     if ccy_from in app.currencies and ccy_to in app.currencies and quantity > 0:
 
-        cache_state = check_cache_staleness()
+        cache_state_stale = check_cache_staleness()
 
-        if cache_state != ErrorCodes.FX_RATES_UPDATED:
-            return {"error": cache_state}
+        if cache_state_stale:
+           cache_update_state = await update_rates()
+        else:
+            cache_update_state = ErrorCodes.FX_RATES_UPDATED
+
+        if cache_update_state != ErrorCodes.FX_RATES_UPDATED:
+            return {"error": cache_update_state}
 
         cur_pair = ccy_from + "_" + ccy_to
 
