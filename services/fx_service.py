@@ -1,10 +1,9 @@
 import asyncio
 import time
 from enum import Enum
-from threading import Lock
 
 import aiohttp
-import requests
+#import requests
 from fastapi import FastAPI
 import logging
 
@@ -19,7 +18,6 @@ app.coindesk_session = None
 
 coindesk_service_uri = 'https://api.coindesk.com/v1/bpi/currentprice.json'
 
-#fx_rates_lock = Lock()
 fx_rates_lock = asyncio.Lock()
 
 class ErrorCodes(Enum):
