@@ -64,26 +64,28 @@ async def update_rates():
             if cur["code"] == "GBP":
                 bpi_gbp = float(cur["rate_float"])
 
-    fx_rates_temp = {}
+    fx_rates_temp = app.fx_rates.copy()
 
-    fx_rates_temp["BPI_USD"] = bpi_usd
-    fx_rates_temp["USD_BPI"] = 1/bpi_usd
+    author = "service"
 
-    fx_rates_temp["BPI_EUR"] = bpi_eur
-    fx_rates_temp["EUR_BPI"] = 1/bpi_eur
+    fx_rates_temp["BPI_USD"] = {author : bpi_usd}
+    fx_rates_temp["USD_BPI"] = {author : 1/bpi_usd}
 
-    fx_rates_temp["BPI_GBP"] = bpi_gbp
-    fx_rates_temp["GBP_BPI"] = 1/bpi_gbp
+    fx_rates_temp["BPI_EUR"] = {author : bpi_eur}
+    fx_rates_temp["EUR_BPI"] = {author : 1/bpi_eur}
+
+    fx_rates_temp["BPI_GBP"] = {author : bpi_gbp}
+    fx_rates_temp["GBP_BPI"] = {author : 1/bpi_gbp}
 
 
-    fx_rates_temp["EUR_USD"] = bpi_usd/bpi_eur
-    fx_rates_temp["USD_EUR"] = bpi_eur/bpi_usd
+    fx_rates_temp["EUR_USD"] = {author : bpi_usd/bpi_eur}
+    fx_rates_temp["USD_EUR"] = {author : bpi_eur/bpi_usd}
 
-    fx_rates_temp["GBP_USD"] = bpi_usd/bpi_gbp
-    fx_rates_temp["USD_GBP"] = bpi_gbp/bpi_usd
+    fx_rates_temp["GBP_USD"] = {author : bpi_usd/bpi_gbp}
+    fx_rates_temp["USD_GBP"] = {author : bpi_gbp/bpi_usd}
 
-    fx_rates_temp["EUR_GBP"] = bpi_gbp/bpi_eur
-    fx_rates_temp["GBP_EUR"] = bpi_eur/bpi_gbp
+    fx_rates_temp["EUR_GBP"] = {author : bpi_gbp/bpi_eur}
+    fx_rates_temp["GBP_EUR"] = {author : bpi_eur/bpi_gbp}
 
     #this lock is used for demo purposes only, it is not required since assignment of value to variable is atomic threadsafe operation
     async with fx_rates_lock:
@@ -129,6 +131,17 @@ async def get_all_latest_fx_rates():
     async with fx_rates_lock:
         return app.fx_rates.copy()
 
+@app.get("/v1/fx-overwrite/")
+async def fx_overwrite(ccy_from: str , ccy_to: str, rate: float):
+
+    cache_state_stale = check_cache_staleness()
+
+    if cache_state_stale:
+        cache_update_state = await update_rates()
+    else:
+        cache_update_state = ErrorCodes.FX_RATES_UPDATED
+
+    app.fx_rates[ccy_from + "_" + ccy_to]["end-user"] = rate
 
 #http://127.0.0.1:8000/v1/converted-amount/?ccy_from=USD&ccy_to=GBP&quantity=1000
 @app.get("/v1/converted-amount/")
@@ -153,7 +166,13 @@ async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
         async with fx_rates_lock:
             fx_rate = app.fx_rates[cur_pair]
 
-        converted_quantity = round(quantity * fx_rate, 2)
+        if fx_rate.get("end-user") is not None:
+
+            converted_quantity = round(quantity * fx_rate.get("end-user"), 2)
+
+        else:
+
+            converted_quantity = round(quantity * fx_rate.get("service"), 2)
 
         return {"quantity": converted_quantity, "ccy": ccy_to}
 
