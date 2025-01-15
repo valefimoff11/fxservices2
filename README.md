@@ -1,4 +1,4 @@
-# **Currency Converter REST API service**
+# **Currency Converter REST API Service**
 
 Users can send GET requests to the Currency Converter REST API with parameters
 ccy_from=USD&amp;ccy_to=GBP&amp;quantity=1000 and receive a response in the JSON format {“quantity”: 779.77,
