@@ -3,7 +3,6 @@ import time
 from enum import Enum
 
 import aiohttp
-#import requests
 from fastapi import FastAPI
 import logging
 
