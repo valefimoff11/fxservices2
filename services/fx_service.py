@@ -65,27 +65,30 @@ async def update_rates():
             if cur["code"] == "GBP":
                 bpi_gbp = float(cur["rate_float"])
 
-    # acquire the lock
+    fx_rates_temp = {}
+
+    fx_rates_temp["BPI_USD"] = bpi_usd
+    fx_rates_temp["USD_BPI"] = 1/bpi_usd
+
+    fx_rates_temp["BPI_EUR"] = bpi_eur
+    fx_rates_temp["EUR_BPI"] = 1/bpi_eur
+
+    fx_rates_temp["BPI_GBP"] = bpi_gbp
+    fx_rates_temp["GBP_BPI"] = 1/bpi_gbp
+
+
+    fx_rates_temp["EUR_USD"] = bpi_usd/bpi_eur
+    fx_rates_temp["USD_EUR"] = bpi_eur/bpi_usd
+
+    fx_rates_temp["GBP_USD"] = bpi_usd/bpi_gbp
+    fx_rates_temp["USD_GBP"] = bpi_gbp/bpi_usd
+
+    fx_rates_temp["EUR_GBP"] = bpi_gbp/bpi_eur
+    fx_rates_temp["GBP_EUR"] = bpi_eur/bpi_gbp
+
+    #this lock is used for demo purposes only, it is not required since assignment of value to variable is atomic threadsafe operation
     async with fx_rates_lock:
-
-        app.fx_rates["BPI_USD"] = bpi_usd
-        app.fx_rates["USD_BPI"] = 1/bpi_usd
-
-        app.fx_rates["BPI_EUR"] = bpi_eur
-        app.fx_rates["EUR_BPI"] = 1/bpi_eur
-
-        app.fx_rates["BPI_GBP"] = bpi_gbp
-        app.fx_rates["GBP_BPI"] = 1/bpi_gbp
-
-
-        app.fx_rates["EUR_USD"] = bpi_usd/bpi_eur
-        app.fx_rates["USD_EUR"] = bpi_eur/bpi_usd
-
-        app.fx_rates["GBP_USD"] = bpi_usd/bpi_gbp
-        app.fx_rates["USD_GBP"] = bpi_gbp/bpi_usd
-
-        app.fx_rates["EUR_GBP"] = bpi_gbp/bpi_eur
-        app.fx_rates["GBP_EUR"] = bpi_eur/bpi_gbp
+        app.fx_rates = fx_rates_temp
 
     app.latest_update_timestamp = time.time()
 
@@ -147,6 +150,7 @@ async def fx_convert(ccy_from: str , ccy_to: str, quantity: float):
 
         cur_pair = ccy_from + "_" + ccy_to
 
+        # this lock is used for demo purposes only, it is not required since lookup of item in dictionary is atomic threadsafe operation
         async with fx_rates_lock:
             fx_rate = app.fx_rates[cur_pair]
 
