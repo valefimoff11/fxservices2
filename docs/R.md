@@ -42,6 +42,14 @@ Program/System Organization / Architecture / Modular Structure:
     Functional Responsibilities of Modules/Components - allocate/design
     Intefaces between Modules/Components and Interactions between modules (flow of control and data)
 
+    Name Sapces, VAriable Scope and Module Loading Order in Python
+
+Python Bytecode and Virtual Machine:
+
+    Internals
+    Stnadrd Lib Debuging, Profiling and Garbage COllection control
+    Reflection
+
 Parallel Programming:
 
     MultiThreding
@@ -51,6 +59,14 @@ Parallel Programming:
 Decorators:
 
     Useful for Plugins for Framework Extensions
+
+Useful Standard Functions:
+
+    sorted
+    len
+    filter
+    type
+    etc
 
 Other Language Features:
 
