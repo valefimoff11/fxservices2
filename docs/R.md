@@ -100,7 +100,7 @@ Ecosystem of useful third-party Frameworks/Platforms/Libs:
     Pandas
     Numpy
     Data Visualization
-    ML - Keras etc
+    ML - Keras, Pytorch, SciPy etc
     etc
 
 Project Related:
