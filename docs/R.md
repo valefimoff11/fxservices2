@@ -6,9 +6,10 @@ The Data in the Program/System / Data Structures, Define and Organizw/Structure 
 
     Scalar:
 
-        int
-        float
-        complex number
+        Numeric:
+            int
+            float
+            complex number
         string
         date
     
