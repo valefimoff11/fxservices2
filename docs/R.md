@@ -43,7 +43,8 @@ Algorithms:
 
 Program/System Organization / Architecture / Modular Structure:
 
-    Modules/Components:
+    Data - Data Models, Data Flows, Data Access Patterns:
+    System - System Modules/Components:
         Internal:
             Algorithms and Data / Data Structures
             Functions
@@ -57,7 +58,8 @@ Program/System Organization / Architecture / Modular Structure:
             File / Batch Data Transfer
     Functional Responsibilities of Modules/Components - allocate/design
     Intefaces between Modules/Components and Interactions between modules (flow of control and data)
-    System Context - Externally Facing Interfaces and the Execution Env/Platform for the Program
+    System Context - Externally Facing System Interfaces and the Execution Env/Platform for the Program
+    End User Interface
 
     Name Sapces, Variable Scope and Module Loading Order in Python
 
