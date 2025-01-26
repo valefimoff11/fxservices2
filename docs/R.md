@@ -44,7 +44,7 @@ Parallel Programming:
     
 Decorators:
 
-    Useful for Plugins for Framewrk Extensions
+    Useful for Plugins for Framework Extensions
 
 Other:
 
