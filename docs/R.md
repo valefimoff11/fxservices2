@@ -44,8 +44,9 @@ Program/System Organization / Architecture / Modular Structure:
         Packages
     Functional Responsibilities of Modules/Components - allocate/design
     Intefaces between Modules/Components and Interactions between modules (flow of control and data)
+    System Context - Externally Facing Interfaces and the Execution Env/Platform for the Program
 
-    Name Sapces, VAriable Scope and Module Loading Order in Python
+    Name Sapces, Variable Scope and Module Loading Order in Python
 
 Error Handling / Reliability Design:
 
