@@ -101,9 +101,10 @@ Ecosystem of useful third-party Frameworks/Platforms/Libs:
 
 Project Related:
 
-    Testing - Manual Tetsing with Debugger and Logging, Automated Unit Testing (Python SPecific), System Integration Testing
-    Environments and Deployment to different environments
+    Testing - Manual Tetsing with Debugger and Logging, Automated Unit Testing (Python SPecific), System Integration Testing, Code Coverage (%)
+    Lint - coding style standards
+    Environments (Dev, UAT, Prod) and Deployment to different environments
     Instrumentation and Ongoing Monitoring
     Testing - Funcional, Scalability, Reliability
     Dev Workflow - code repositories, PRs, repo branching structure etc, CD/CI Pipelines - their organization and structure and how to participate in them
-    Confluence, JIRas, Backlogs, etc
+    Project Management and Documentation - Confluence, JIRas, Backlogs, etc
