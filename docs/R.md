@@ -1,6 +1,11 @@
+HOW TO THINK AND GO ABOUT PROGRAM DESIGN, DEVELOPMENT AND TESTING AND THE OVERALL PROJECT ENVIRONMENT AROUND THAT 
+
+---------------------------------------------------------------------------------------------------------------------
+
 The Data in the Program/System / Data Structures, Define and Organizw/Structure the Data in thge Program /  the Data the Program operates upon:
 
     Scalar:
+
         int
         float
         complex number
@@ -8,6 +13,7 @@ The Data in the Program/System / Data Structures, Define and Organizw/Structure 
         date
     
     Data Structures:
+
         Sequence/Range
         Tuple
         Enumeration
