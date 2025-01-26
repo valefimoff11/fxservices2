@@ -1,9 +1,10 @@
 HOW TO THINK AND GO ABOUT PROGRAM DESIGN, DEVELOPMENT AND TESTING AND THE OVERALL PROJECT ENVIRONMENT AROUND THAT 
 
-use this during both: 
+use this during: 
 a) New Software System Design and Development and 
 b) as a Structured Checklist what areas to look for and reverse engineer from existing solution
 to Map Out how it was designed and developed
+c) as Plan for ongoing training
 
 ---------------------------------------------------------------------------------------------------------------------
 
