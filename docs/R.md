@@ -37,7 +37,7 @@ Algorithms:
 Program/System Organization / Architecture / Modular Structure:
 
     Modules/Components:
-        Algorithms and Data Structures
+        Algorithms and Data / Data Structures
         Functions
         Classes (and class hierarchies)
         Modules
