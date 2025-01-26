@@ -24,6 +24,7 @@ The Data in the Program/System / Data Structures, Define and Organizw/Structure 
         Sequence/Range
         Tuple
         Enumeration
+        Data Class
         List (also a surogate Array)
         Dictionary (HashMap)
         Set
