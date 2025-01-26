@@ -30,6 +30,8 @@ The Data in the Program/System / Data Structures, Define and Organizw/Structure 
 
         Nested Variants of all of the above
 
+        Functional (Data Access and Manipulation) Basic Primitives for each of the above (the basic/primordial algos for the basic/primordial data structures)
+
 Algorithms:
 
     Operate on the above Data - Scalar and Data Structure 
@@ -109,6 +111,7 @@ Project Related:
     Lint - coding style standards
     Environments (Dev, UAT, Prod) and Deployment to different environments
     Instrumentation and Ongoing Monitoring
+    Packaging, Distribution of system components/libs, package repos - internal external
     Testing - Funcional, Scalability, Reliability
     Dev Workflow - code repositories, PRs, repo branching structure etc, CD/CI Pipelines - their organization and structure and how to participate in them
     Project Management and Documentation - Confluence, JIRas, Backlogs, etc
