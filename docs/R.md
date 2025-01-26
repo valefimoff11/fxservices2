@@ -52,7 +52,7 @@ Decorators:
 
     Useful for Plugins for Framework Extensions
 
-Other:
+Other Language Features:
 
     Yeild, Generators
     With
@@ -66,6 +66,16 @@ Other:
     NetworkIO
     
     Math Operations, Equations and Algos - Math and Qunat Operators and Libs 
+
+Ecosystem of useful third-party Frameworks/Platforms/Libs:
+
+    PySpark
+    FastAPI
+    Pandas
+    Numpy
+    Data Visualization
+    ML - Keras etc
+    etc
 
 Project Related:
 
