@@ -39,11 +39,16 @@ Algorithms:
 Program/System Organization / Architecture / Modular Structure:
 
     Modules/Components:
-        Algorithms and Data / Data Structures
-        Functions
-        Classes (and class hierarchies)
-        Modules
-        Packages
+        Internal:
+            Algorithms and Data / Data Structures
+            Functions
+            Classes (and class hierarchies)
+            Modules
+            Packages
+        External/Remotable:
+            IPC
+            Services
+            Message Brokers / ESB
     Functional Responsibilities of Modules/Components - allocate/design
     Intefaces between Modules/Components and Interactions between modules (flow of control and data)
     System Context - Externally Facing Interfaces and the Execution Env/Platform for the Program
