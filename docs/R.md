@@ -39,8 +39,8 @@ Program/System Organization / Architecture / Modular Structure:
         Classes (and class hierarchies)
         Modules
         Packages
-    Functional Responsibilities of Modules/Components
-    Intefaces between Modules/Components
+    Functional Responsibilities of Modules/Components - allocate/design
+    Intefaces between Modules/Components and Interactions between modules (flow of control and data)
 
 Parallel Programming:
 
