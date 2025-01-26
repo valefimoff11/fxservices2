@@ -44,6 +44,12 @@ Program/System Organization / Architecture / Modular Structure:
 
     Name Sapces, VAriable Scope and Module Loading Order in Python
 
+Error Handling / Reliability Design:
+
+    Error conditions/logic, error codes, exceptions
+    Logging
+    Program Input/Output
+
 Python Bytecode and Virtual Machine:
 
     Internals
