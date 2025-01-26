@@ -126,6 +126,7 @@ Project Related:
     Lint - coding style standards
     Environments (Dev, UAT, Prod) and Deployment to different environments
     Instrumentation and Ongoing Monitoring
+    Python virtual env manageemnt, pip, requirements.txt gen etc
     Packaging, Distribution of system components/libs, package repos - internal external
     Testing - Funcional, Scalability, Reliability
     Dev Workflow - code repositories, PRs, repo branching structure etc, CD/CI Pipelines - their organization and structure and how to participate in them
