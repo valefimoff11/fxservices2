@@ -48,7 +48,8 @@ Program/System Organization / Architecture / Modular Structure:
         External/Remotable:
             IPC
             Services
-            Message Brokers / ESB
+            Message Brokers / ESB - Message Transfer
+            File / Batch Data Transfer
     Functional Responsibilities of Modules/Components - allocate/design
     Intefaces between Modules/Components and Interactions between modules (flow of control and data)
     System Context - Externally Facing Interfaces and the Execution Env/Platform for the Program
