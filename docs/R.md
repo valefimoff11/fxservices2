@@ -100,7 +100,7 @@ Other Language Features:
     List/Dict Comprehension
     Exceptions
     Logging
-    Program Input Param parsing
+    Program Input Param parsing and validation
     Runtime instrumentation
     Json and Request
     FileIO
