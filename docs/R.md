@@ -52,9 +52,20 @@ Other:
     With
     List/Dict Comprehension
     Exceptions
+    Logging
+    Program Input Param parsing
     Runtime instrumentation
     Json and Request
     FileIO
     NetworkIO
     
     Math Operations, Equations and Algos - Math and Qunat Operators and Libs 
+
+Project Related:
+
+    Testing - Manual Tetsing with Debugger and Logging, Automated Unit Testing (Python SPecific), System Integration Testing
+    Environments and Deployment to different environments
+    Instrumentation and Ongoing Monitoring
+    Testing - Funcional, Scalability, Reliability
+    Dev Workflow - code repositories, PRs, repo branching structure etc, CD/CI Pipelines - their organization and structure and how to participate in them
+    Confluence, JIRas, Backlogs, etc
