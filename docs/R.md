@@ -52,7 +52,7 @@ Error Handling / Reliability Design:
 
     Error conditions/logic, error codes, exceptions
     Logging
-    Program Input/Output
+    Program Input/Output and Input/Output Validation
 
 Python Bytecode and Virtual Machine:
 
