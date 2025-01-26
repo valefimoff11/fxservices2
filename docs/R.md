@@ -51,8 +51,8 @@ Program/System Organization / Architecture / Modular Structure:
 Error Handling / Reliability Design:
 
     Error conditions/logic, error codes, exceptions
-    Logging
     Program Input/Output and Input/Output Validation
+    Logging
 
 Python Bytecode and Virtual Machine:
 
