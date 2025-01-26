@@ -1,5 +1,10 @@
 HOW TO THINK AND GO ABOUT PROGRAM DESIGN, DEVELOPMENT AND TESTING AND THE OVERALL PROJECT ENVIRONMENT AROUND THAT 
 
+use this during both: 
+a) New Software System Design and Development and 
+b) as a Structured Checklist what areas to look for and reverse engineer from existing solution
+to Map Out how it was designed and developed
+
 ---------------------------------------------------------------------------------------------------------------------
 
 The Data in the Program/System / Data Structures, Define and Organizw/Structure the Data in thge Program /  the Data the Program operates upon:
@@ -30,7 +35,7 @@ The Data in the Program/System / Data Structures, Define and Organizw/Structure 
 
         Nested Variants of all of the above
 
-        Functional (Data Access and Manipulation) Basic Primitives for each of the above (the basic/primordial algos for the basic/primordial data structures)
+        Functional (Data Access and Manipulation) Basic Primitives for each of the above (the basic/first order/primordial algos for the basic/primordial data structures)
 
 Algorithms:
 
