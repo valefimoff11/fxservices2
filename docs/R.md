@@ -60,7 +60,7 @@ Decorators:
 
     Useful for Plugins for Framework Extensions
 
-Useful Standard Functions:
+Useful Standard/Built-In Functions:
 
     sorted
     len
