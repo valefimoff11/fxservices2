@@ -27,6 +27,8 @@ The Data in the Program/System / Data Structures, Define and Organizw/Structure 
         DataFrame (Pandas), this is essentially a RDBMS Table abstraction
         TimeSeries (Pandas and several more)
 
+        Nested Varianrs of all of the above
+
 Algorithms:
 
     Operate on the above Data - Scalar and Data Structure 
