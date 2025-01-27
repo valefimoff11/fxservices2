@@ -82,6 +82,8 @@ Parallel Programming:
     MultiThreding
     MultiProcessing
     AsyncIO
+
+    the overall framewrk apis for each of teh above, including semaphors, locks etc
     
 Decorators:
 
@@ -97,8 +99,9 @@ Useful Standard/Built-In Functions:
 
 Other Language Features:
 
+    OOP in Python - overiding operators (+, =, etc), abstract, etc
     Yeild, Generators
-    With
+    With / Context Management
     List/Dict Comprehension
     Exceptions
     Logging
