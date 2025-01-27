@@ -135,3 +135,10 @@ Project Related:
     Testing - Funcional, Scalability, Reliability
     Dev Workflow - code repositories, PRs, repo branching structure etc, CD/CI Pipelines - their organization and structure and how to participate in them
     Project Management and Documentation - Confluence, JIRas, Backlogs, etc
+
+Business:
+
+https://www.google.com/search?q=python+portfolio+var+historical+scenarios&oq=python+portfolio+var+historical+scenarios&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigATIHCAIQIRigATIHCAMQIRiPAtIBCjQwMDQwajBqMTWoAgiwAgE&sourceid=chrome&ie=UTF-8
+https://campus.datacamp.com/courses/introduction-to-portfolio-risk-management-in-python/value-at-risk?ex=3
+https://www.linkedin.com/pulse/copy-option-greeks-hemant-thapa-dn8fe/
+https://github.com/omartinsky/QuantAndFinancial/blob/master/yield_curve_bootstrapping/bootstrapping.ipynb
