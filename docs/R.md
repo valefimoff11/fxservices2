@@ -142,3 +142,6 @@ https://www.google.com/search?q=python+portfolio+var+historical+scenarios&oq=pyt
 https://campus.datacamp.com/courses/introduction-to-portfolio-risk-management-in-python/value-at-risk?ex=3
 https://www.linkedin.com/pulse/copy-option-greeks-hemant-thapa-dn8fe/
 https://github.com/omartinsky/QuantAndFinancial/blob/master/yield_curve_bootstrapping/bootstrapping.ipynb
+https://www.youtube.com/watch?v=g-efwWZZBvA
+https://www.youtube.com/watch?v=QsccAA3k_1o
+https://python.plainenglish.io/feature-engineering-for-time-series-forecasting-in-python-7c469f69e260
