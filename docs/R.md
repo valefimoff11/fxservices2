@@ -145,3 +145,5 @@ https://github.com/omartinsky/QuantAndFinancial/blob/master/yield_curve_bootstra
 https://www.youtube.com/watch?v=g-efwWZZBvA
 https://www.youtube.com/watch?v=QsccAA3k_1o
 https://python.plainenglish.io/feature-engineering-for-time-series-forecasting-in-python-7c469f69e260
+
+https://medium.com/@matt_84072/historical-simulation-value-at-risk-explained-with-python-code-a904d848d146
