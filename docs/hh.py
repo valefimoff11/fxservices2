@@ -39,3 +39,5 @@ print(c.a)
 ac(c)
 print(c.a)
 
+print(type(c))
+

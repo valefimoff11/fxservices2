@@ -14,3 +14,6 @@ except KeyError as err:
 for v in s.values():
     print(v)
 
+p = [1,5,3,2]
+
+print(sorted(p))
