@@ -1,0 +1,100 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.14">
+  <diagram name="Page-1" id="MfKzKi9OeBH1InkJuYtK">
+    <mxGraphModel dx="2534" dy="818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#CCFF99;" vertex="1" parent="1">
+          <mxGeometry x="511" y="348" width="200" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-3" value="Python Interpreter (VM) Memory Heap&lt;div&gt;(managed by the Python Interpreter Memory Manager)&lt;/div&gt;&lt;div&gt;Note: The OS Memory Manager has no idea whats happening inside the Python Interpreter Memory Heap - only Cpython APIs can do that effectively&amp;nbsp;&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="442" y="288" width="317.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-4" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;fontColor=light-dark(#1a58bc, #ededed);strokeColor=light-dark(#1e5beb, #ededed);strokeWidth=4;" vertex="1" parent="1">
+          <mxGeometry x="209" y="183" width="620" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-5" value="int object" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="551" y="378" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZFcuSpM6qP0vNisk4Jnv-6" target="ZFcuSpM6qP0vNisk4Jnv-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-6" value="pandas object" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="551" y="443" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-7" value="- The overall OS Memory (as available in the specific execution environment / machine) managed by the OS Memory Manager&lt;div&gt;- CPU measurements&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Dynamic measurement of the resources in the OS Process Space by the telemetry code at runtime&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=#007FFF;" vertex="1" parent="1">
+          <mxGeometry x="251" y="128" width="536" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZFcuSpM6qP0vNisk4Jnv-8" target="ZFcuSpM6qP0vNisk4Jnv-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-8" value="input dataset size&lt;div&gt;(e.g. on disk)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="901" y="433" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="ZFcuSpM6qP0vNisk4Jnv-10" target="ZFcuSpM6qP0vNisk4Jnv-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZFcuSpM6qP0vNisk4Jnv-10" target="ZFcuSpM6qP0vNisk4Jnv-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-10" value="block of python code" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="291" y="403" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-11" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="236" y="238" width="530" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-14" value="Dynamic measurement by the telemetry code of the size of input dataset at runtime" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="876" y="383" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-16" value="Python Interpreter (VM) - CPython" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="422" y="213" width="235" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-18" value="dynamic measurement of the overall memory inside the heap of the interpreter and also ref counts and size of runtime python objects by the telemetry code, also as tied to the specific block of code and/or function which produced them" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="481" y="638" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-19" value="pandas object" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="551.5" y="548" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZFcuSpM6qP0vNisk4Jnv-20" target="ZFcuSpM6qP0vNisk4Jnv-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-20" value="block of python code" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="291" y="528" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-23" value="derived" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="601" y="498" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-27" value="The overall algorithm for memory and cpu performance management inside Model Software Component:&lt;div&gt;1. Obtain all of the above types of telemetry measurements - at the beginning of the execution of the software component, on an ongoing basis during the execution and at the end of the execution&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;2. Fuse the measurements and use the info for dynamic decisions about memory allocation, data partitioning, alerting and also for logging of the runtime resource profile of the software component over time&amp;nbsp;&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="236" y="818" width="610" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-28" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#FF0080;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="261" y="378" width="181" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-29" value="Model Software Component code" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="261" y="348" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-30" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;Internal Telemetry Architecture for Software Model Component&lt;/b&gt;&lt;/font&gt;&lt;div&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;&lt;b style=&quot;&quot;&gt;(reusable across any model component framework / project)&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="206" y="30" width="628" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-31" value="&lt;div&gt;Understanding and Monitoring the internals of memory and CPU management in Python app, VM and the surrounding OS, enables:&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;a) designing memory-efficient applications&lt;/div&gt;&lt;div&gt;b) makes it easier to debug memory issues in an application&lt;/div&gt;&lt;div&gt;c) alerts for memory issues in real-time&lt;/div&gt;&lt;div&gt;d) enables the application to make dynamic runtime decisions about optimal management of data acorss disk and RAM to avoid memory leaks and carshes&lt;/div&gt;&lt;div&gt;e) multithreading / parallel processing startegic and debug of peromance issues&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="241.5" y="940" width="599" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-32" value="The Operating System CPU and Memory Space Management&lt;div&gt;Note: the OS Memory Manager has no visibility of the python objects inside the Python Interpreter Memory Heap&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontColor=light-dark(#1153ee, #ededed);" vertex="1" parent="1">
+          <mxGeometry x="891" y="180" width="209" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.987;entryY=0.075;entryDx=0;entryDy=0;entryPerimeter=0;strokeColor=#3399FF;" edge="1" parent="1" source="ZFcuSpM6qP0vNisk4Jnv-32" target="ZFcuSpM6qP0vNisk4Jnv-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-34" value="&lt;div&gt;Key Principles:&lt;/div&gt;&lt;div&gt;a) Collect metrics over time&lt;/div&gt;&lt;div&gt;b) Detect and alert on anomaly / outlier events e.g. when certain threshold (of available RAM or object size in RAM) is crossed&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Key Metrics:&amp;nbsp;&lt;/div&gt;&lt;div&gt;- Total amount of free RAM in the OS porcess space (of e.g. the Kubernetes POD where the Model Software Component is running)&lt;/div&gt;&lt;div&gt;- Total amount of free RAM in the Heap of the Python Interpreter/VM&lt;/div&gt;&lt;div&gt;- Memory usage of individual python ojects, isnatiated by the python app code at runtime&lt;/div&gt;&lt;div&gt;- Memory occupied by python objects instantiated by specific block of code or function&lt;/div&gt;&lt;div&gt;- Python objects with circular references&lt;/div&gt;&lt;div&gt;- Python objects with reference counts &amp;gt; 0 beyond their useful scope in the code&lt;/div&gt;&lt;div&gt;- Growing number of python objects (including growing number of instances of the same object)&lt;/div&gt;&lt;div&gt;- Top N objects in terms of size and/or number of references&lt;/div&gt;&lt;div&gt;- CPU utilization&lt;/div&gt;&lt;div&gt;- Number of CPU cores engaged&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="241.5" y="1130" width="600" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-35" value="The overall Telemetry Framework is integrated into the Model Software Component in a Transparent and Injectable way through:&lt;div&gt;a) Reflection&lt;/div&gt;&lt;div&gt;b) Decorators&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;The above can be done in two ways:&lt;/div&gt;&lt;div&gt;a) Manual - the developer manually / explicitly Tags / Registers functions and objects for telemetry&amp;nbsp;&lt;/div&gt;&lt;div&gt;b) Automatically - the Telemetry Framework automatically applies Reflection to the current app code and injects Decorators in the appropriate places throughout the code&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="-70" y="468" width="260" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="ZFcuSpM6qP0vNisk4Jnv-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.962;entryY=0.067;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=1;startArrow=classic;strokeColor=light-dark(#ec0909, #ededed);" edge="1" parent="1" source="ZFcuSpM6qP0vNisk4Jnv-28" target="ZFcuSpM6qP0vNisk4Jnv-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
