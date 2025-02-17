@@ -34,7 +34,10 @@ df2 = pd.DataFrame(
 
 ref_count = sys.getrefcount(df2)
 print(ref_count)
+#total RAM
 print( df2.info() )
+#RAM by column
+print(df2.memory_usage())
 
 #print( df2["A"] )
 #print( df2["A"].info() )
@@ -45,9 +48,36 @@ print(ref_count)
 df3 = df2
 
 ref_count = sys.getrefcount(df2)
-print(ref_count)
 
 del df3
 
 ref_count = sys.getrefcount(df2)
 print(ref_count)
+
+
+df4 = df2[["A", "B"]]
+print(df4)
+ref_count = sys.getrefcount(df4)
+print(ref_count)
+#total RAM
+print( df4.info() )
+#RAM by column
+print(df4.memory_usage())
+
+print("metrics for df2")
+
+ref_count = sys.getrefcount(df2)
+print(ref_count)
+#total RAM
+print( df2.info() )
+#RAM by column
+print(df2.memory_usage())
+
+
+sys.exit()
+
+#pandas chunking
+# Reading the data in chunks
+data = pd.read_csv('data.csv', chunksize=1000)
+# Concatenating the chunks together
+df = pd.concat(data)
