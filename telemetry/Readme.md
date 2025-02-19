@@ -19,7 +19,7 @@ CPU/code speed/time Profiling:
 
     App code speed/time in Python Interpreter/VM Profiling
         line-profiler
-        cProfiler 
+        cProfile
         sys.timeit etc - profiling
 
 Data Profiling
