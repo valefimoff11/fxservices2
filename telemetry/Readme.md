@@ -1,3 +1,8 @@
+Assess and select the best packages
+Implement injectable and configurable Telemetry framework, which incorporates the above
+Integrate the new Telemetry in the currently implemented models
+Test the currently implemented models with increasing dataset sizes to fit a Scalability and Memory Allocation Profiles 
+
 CPU/code speed/time Profiling:
 
     OS Process Space CPU Profiling:
