@@ -1,6 +1,6 @@
 Model Telemetry Development Plan:
 
-1. Assess and select the best packages
+1. Assess and select the best Telemetry packages and APIs
 2. Implement injectable and configurable Telemetry framework, which incorporates the above
 3. Integrate the new Telemetry in the currently implemented models
 4. Test the currently implemented models with increasing dataset sizes to fit a Scalability and Memory Allocation Profiles 
