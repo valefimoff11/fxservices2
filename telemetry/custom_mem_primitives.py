@@ -2,6 +2,14 @@ import sys
 import numpy as np
 import pandas as pd
 
+#################################################################
+
+#get refernce counts for an object
+#get Pnadas memory size
+#get memory size of any individual python object
+
+#################################################################
+
 add = "memory"
 ref_count = sys.getrefcount(add)
 print(ref_count)
@@ -34,10 +42,25 @@ df2 = pd.DataFrame(
 
 ref_count = sys.getrefcount(df2)
 print(ref_count)
+
+print("####################################################")
+print("ii type")
+
+ii = df2.info()
+print( type(ii) )
+print(ii[0])
+
+print("####################################################")
+
 #total RAM
 print( df2.info() )
+
+print("####################################################")
+
 #RAM by column
 print(df2.memory_usage())
+
+sys.exit()
 
 #print( df2["A"] )
 #print( df2["A"].info() )
