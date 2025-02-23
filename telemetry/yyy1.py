@@ -24,7 +24,5 @@ print("#####################################################")
 print(df.memory_usage(True, True))
 
 dmu = df.memory_usage(True, True)
-print(dmu.iloc[0])
-print(dmu.iloc[1])
-print(dmu.iloc[2])
-print(dmu.iloc[3])
+for index, value in dmu.items():
+    print(f"Index : {index}, Value : {value}")
