@@ -11,9 +11,11 @@ df = pd.DataFrame({
 df.info()
 
 print("deep ###############################################")
+
 df.info(memory_usage='deep')
 
 print("deep substring #######################################")
+
 import io
 buffer = io.StringIO()
 df.info(memory_usage='deep', buf=buffer)
@@ -21,6 +23,7 @@ s = buffer.getvalue()
 print(s[1])
 
 print("#####################################################")
+
 print(df.memory_usage(True, True))
 
 dmu = df.memory_usage(True, True)
