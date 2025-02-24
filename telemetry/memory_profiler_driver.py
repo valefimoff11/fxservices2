@@ -44,21 +44,28 @@ print("")
 
 ds[2].info()
 
-sys.exit()
+#sys.exit()
 
 ###########################################################################
 
+buffer = io.StringIO()
+
 mem_logs = open('mem_profile.log','a')
 
-@profile(stream=mem_logs)
+@profile(stream=buffer)
 def process_strs1(reps=10**6):
 	str1 = 'python'*reps
 	str2 = 'programmer'*reps
 	str3 = str1 + str2
+	print(sys.getsizeof(str3)/1024/1024)
 	del str2
 	return str3
 
 process_strs1(reps=10**7)
+
+df_info = buffer.getvalue()
+print("------------------------------------------------------------------")
+print(df_info)
 
 
 ############################################################################
