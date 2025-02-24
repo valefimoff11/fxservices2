@@ -23,7 +23,7 @@ print("####################################################################")
 for var, obj in local_vars.items():
     if isinstance(obj, pd.DataFrame):
         gso = obj.memory_usage(True, True).sum()
-        print(gso)
+        print(var + ": " + str(gso))
 
 sys.exit()
 
