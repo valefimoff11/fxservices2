@@ -81,6 +81,22 @@ if __name__ == '__main__':
 
     print("")
 
+    # Allocate a list with a range of numbers
+    a = [i for i in range(10000)]
+    print(get_container_total_size(a, verbose=False))
+
+    print("")
+
+    # Allocate another list with squares of numbers
+    b = [i ** 2 for i in range(10000)]
+    print(get_container_total_size(b, verbose=False))
+
+    print("")
+
+    print(sys.getsizeof(b))
+
+    sys.exit()
+
     df1 = pd.DataFrame({
         'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
         'column_2': np.random.choice(['a', 'b', 'c'], 10 ** 6),

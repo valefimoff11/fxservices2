@@ -33,6 +33,8 @@ print( round( sys.getsizeof(p)/1024/1024, 1) )
 print("deep ###############################################")
 
 df.info(memory_usage='deep')
+df.info()
+
 
 print("deep substring #######################################")
 
