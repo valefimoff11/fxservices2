@@ -23,9 +23,9 @@ def mem_leaker():
     arr.append(df1)
 
 if __name__ == '__main__':
-    tracemalloc.start(10)
+    tracemalloc.start(25)
 
-    for _ in range(1):
+    for _ in range(3):
         mem_leaker()
         gc.collect()
         tracemalloc_profiler.snapshot()
