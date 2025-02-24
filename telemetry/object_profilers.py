@@ -13,11 +13,12 @@ except ImportError:
 
 
 def get_pandas_mem_profile(df):
+    """ Returns the total size and object reference count of Pandas dataframe """
 
     df_mem_size = sys.getsizeof(df)
     df_ref_count = sys.getrefcount(df) - 1
 
-    return (df_mem_size, df_ref_count)
+    return df_mem_size, df_ref_count
 
 
 def get_container_total_size(o, handlers={}, verbose=False):
