@@ -1,5 +1,6 @@
 import sys
 from sys import getsizeof, stderr
+import io
 from itertools import chain
 from collections import deque
 
@@ -13,13 +14,18 @@ except ImportError:
 
 
 def get_pandas_mem_profile(df):
-    """ Returns the total size and object reference count of Pandas dataframe """
+    """ Returns the total size, column size, mem footrpint related info and object reference count of Pandas dataframe """
 
     df_total_mem_size = sys.getsizeof(df)
     df_column_size = df.memory_usage(True, True)
+
+    buffer = io.StringIO()
+    df.info(memory_usage='deep', buf=buffer)
+    df_info = buffer.getvalue()
+
     df_ref_count = sys.getrefcount(df) - 1
 
-    return df_total_mem_size, df_column_size, df_ref_count
+    return df_total_mem_size, df_column_size, df_info, df_ref_count
 
 
 def get_container_total_size(o, handlers={}, verbose=False):
@@ -85,6 +91,12 @@ if __name__ == '__main__':
 
     df_mem_profile = get_pandas_mem_profile(df1)
     print(df_mem_profile)
+
+    print("")
+
+    print(df_mem_profile[2])
+
+    print("")
 
     #make use of the mem sizes of each column in the pandas dataframe
     for index, value in df_mem_profile[1].items():
