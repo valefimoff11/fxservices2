@@ -1,5 +1,8 @@
 import tracemalloc
 
+#If the system has little free memory, snapshots can be written on disk using the Snapshot.dump() method to analyze the snapshot offline.
+#Then use the Snapshot.load() method reload the snapshot.
+
 # list to store memory snapshots
 snaps = []
 
