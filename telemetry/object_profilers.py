@@ -79,7 +79,7 @@ if __name__ == '__main__':
     d2 = dict(a=1, b=2, c=3, d=[4,5,6,7, 88, 222, 333, 37373, 777, 3333, 333, 333, 33], e='a string of chars')
     print(get_container_total_size(d2, verbose=True))
 
-    sys.exit()
+    print("")
 
     df1 = pd.DataFrame({
         'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
