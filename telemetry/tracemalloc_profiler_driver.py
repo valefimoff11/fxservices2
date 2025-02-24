@@ -25,7 +25,7 @@ def mem_leaker():
 if __name__ == '__main__':
     tracemalloc.start(10)
 
-    for _ in range(5):
+    for _ in range(1):
         mem_leaker()
         gc.collect()
         tracemalloc_profiler.snapshot()

@@ -36,3 +36,11 @@ def print_trace():
     print(f"\n*** Trace for largest memory block - ({largest.count} blocks, {largest.size / 1024} Kb) ***")
     for l in largest.traceback.format():
         print(l)
+
+    print("######################################################################################")
+
+    for st in snapshot.statistics("traceback"):
+
+        print(f"\n*** Trace for current memory block - ({st.count} blocks, {st.size / 1024} Kb) ***")
+        for l in st.traceback.format():
+            print(l)
