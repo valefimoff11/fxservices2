@@ -31,6 +31,8 @@ def allocate_dummy_memory():
 	return a, b, df1
 
 ds = allocate_dummy_memory()
+ds1 = allocate_dummy_memory()
+
 
 print("")
 
