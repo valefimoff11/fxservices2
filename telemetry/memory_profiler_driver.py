@@ -23,7 +23,7 @@ process_strs(reps=10**7)
 mem_logs = open('mem_profile.log','a')
 
 @profile(stream=mem_logs)
-def process_strs(reps=10**6):
+def process_strs1(reps=10**6):
 	str1 = 'python'*reps
 	str2 = 'programmer'*reps
 	str3 = str1 + str2
@@ -31,7 +31,7 @@ def process_strs(reps=10**6):
 	return str3
 
 process_strs(reps=10**7)
-process_strs(reps=10**7)
+process_strs1(reps=10**7)
 
 
 ############################################################################
