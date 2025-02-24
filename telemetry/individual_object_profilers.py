@@ -110,7 +110,7 @@ if __name__ == '__main__':
 
     print(sys.getsizeof(b))
 
-    #sys.exit()
+    sys.exit()
 
     df1 = pd.DataFrame({
         'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
