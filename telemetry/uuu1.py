@@ -1,4 +1,3 @@
-from __future__ import print_function
 from sys import getsizeof, stderr
 from itertools import chain
 from collections import deque
@@ -11,8 +10,8 @@ try:
 except ImportError:
     pass
 
-def total_size(o, handlers={}, verbose=False):
-    """ Returns the approximate memory footprint an object and all of its contents.
+def get_container_total_size(o, handlers={}, verbose=False):
+    """ Returns the approximate memory footprint of an container object and all of its items.
 
     Automatically finds the contents of the following builtin containers and
     their subclasses:  tuple, list, deque, dict, set and frozenset.
@@ -55,9 +54,10 @@ def total_size(o, handlers={}, verbose=False):
 ##### Example call #####
 
 if __name__ == '__main__':
+
     #d = dict(a=1, b=2, c=3, d=[4,5,6,7], e='a string of chars')
 
-    df = pd.DataFrame({
+    df1 = pd.DataFrame({
         'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
         'column_2': np.random.choice(['a', 'b', 'c'], 10 ** 6),
         'column_3': np.random.choice(['a', 'b', 'c'], 10 ** 6)
@@ -69,6 +69,6 @@ if __name__ == '__main__':
         'column_3': np.random.choice(['a', 'b', 'c'], 10 ** 6)
     })
 
-    p = {"a": df, "b": df2}
+    input_ds = {"a": df1, "b": df2}
 
-    print(total_size(p, verbose=True))
+    print(get_container_total_size(input_ds, verbose=True))

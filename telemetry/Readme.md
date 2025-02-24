@@ -35,7 +35,7 @@ Data Profiling
         Python Interpreter/VM Memory Heap Profiling
             pympler
             memory-profiler (not supported anymore)
-            tracemalloc, gc, gc.getobject
+            tracemalloc
             objgraph
             stackimpact
             pyrasite
