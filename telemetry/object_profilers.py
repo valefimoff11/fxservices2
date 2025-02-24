@@ -1,3 +1,4 @@
+import sys
 from sys import getsizeof, stderr
 from itertools import chain
 from collections import deque
@@ -9,6 +10,15 @@ try:
     from reprlib import repr
 except ImportError:
     pass
+
+
+def get_pandas_mem_profile(df):
+
+    df_mem_size = sys.getsizeof(df)
+    df_ref_count = sys.getrefcount(df) - 1
+
+    return (df_mem_size, df_ref_count)
+
 
 def get_container_total_size(o, handlers={}, verbose=False):
     """ Returns the approximate memory footprint of an container object and all of its items.
@@ -72,3 +82,7 @@ if __name__ == '__main__':
     input_ds = {"a": df1, "b": df2}
 
     print(get_container_total_size(input_ds, verbose=True))
+
+    print(sys.getrefcount(df1))
+    print(get_pandas_mem_profile(df1))
+    print(sys.getrefcount(df1))
