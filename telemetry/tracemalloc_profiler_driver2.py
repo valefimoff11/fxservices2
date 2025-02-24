@@ -1,3 +1,4 @@
+import sys
 import tracemalloc
 
 import numpy as np
@@ -6,8 +7,8 @@ import pandas as pd
 tracemalloc.start(10)
 
 def allocate_memory():
-    a = [i for i in range(10000)]
-    b = [i ** 2 for i in range(10000)]
+    #a = [i for i in range(10000)]
+    #b = [i ** 2 for i in range(10000)]
 
     df1 = pd.DataFrame({
         'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
@@ -15,7 +16,10 @@ def allocate_memory():
         'column_3': np.random.choice(['a', 'b', 'c'], 10 ** 6)
     })
 
-    return a, b, df1
+    print(sys.getsizeof(df1)/1024/1024)
+    print(df1.memory_usage().sum()/1024/1024)
+
+    return df1
 
 r = allocate_memory()
 
