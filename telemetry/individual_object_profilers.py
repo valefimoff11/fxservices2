@@ -3,15 +3,27 @@ from sys import getsizeof, stderr
 import io
 from itertools import chain
 from collections import deque
-
 import numpy as np
 import pandas as pd
+from reprlib import repr
 
-try:
-    from reprlib import repr
-except ImportError:
-    pass
 
+data_size_suffixes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
+def humansize(nbytes):
+    i = 0
+    while nbytes >= 1024 and i < len(data_size_suffixes)-1:
+        nbytes /= 1024.
+        i += 1
+    f = ('%.2f' % nbytes).rstrip('0').rstrip('.')
+    return '%s %s' % (f, data_size_suffixes[i])
+
+#df.memory_usage(index=True, deep=True).apply(humansize)
+# Index  128 B
+# a      571.72 MB
+# b      687.78 MB
+# c      521.6 MB
+# dtype: object
+#humansize(df.memory_usage(index=True, deep=True).sum())
 
 def get_pandas_mem_profile(df):
     """ Returns the total size, column size, mem footrpint related info and object reference count of Pandas dataframe """
