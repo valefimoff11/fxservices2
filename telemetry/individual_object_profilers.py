@@ -8,8 +8,10 @@ import pandas as pd
 from reprlib import repr
 
 
-data_size_suffixes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
-def humansize(nbytes):
+def optimize_data_size_unit(nbytes):
+
+    data_size_suffixes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB']
+
     i = 0
     while nbytes >= 1024 and i < len(data_size_suffixes)-1:
         nbytes /= 1024
@@ -17,13 +19,13 @@ def humansize(nbytes):
     f = ('%.2f' % nbytes).rstrip('0').rstrip('.')
     return '%s %s' % (f, data_size_suffixes[i])
 
-#df.memory_usage(index=True, deep=True).apply(humansize)
+#df.memory_usage(index=True, deep=True).apply(optimize_data_size_unit)
 # Index  128 B
 # a      571.72 MB
 # b      687.78 MB
 # c      521.6 MB
 # dtype: object
-#humansize(df.memory_usage(index=True, deep=True).sum())
+#optimize_data_size_unit(df.memory_usage(index=True, deep=True).sum())
 
 def get_pandas_mem_profile(df):
     """ Returns the total size, column size, mem footrpint related info and object reference count of Pandas dataframe """
