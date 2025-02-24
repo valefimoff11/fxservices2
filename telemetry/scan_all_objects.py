@@ -10,6 +10,8 @@ df2 = pd.DataFrame({
 
 TEST_VAR = 1919
 
+#add to this Class Reflection
+
 global_vars = globals()
 print(global_vars)
 
