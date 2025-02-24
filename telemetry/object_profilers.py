@@ -86,6 +86,6 @@ if __name__ == '__main__':
     df_mem_profile = get_pandas_mem_profile(df1)
     print(df_mem_profile)
 
-    #get the mem sizes of each column in the pandas dataframe
+    #make use of the mem sizes of each column in the pandas dataframe
     for index, value in df_mem_profile[1].items():
         print(f"Index : {index}, Value : {value}")
