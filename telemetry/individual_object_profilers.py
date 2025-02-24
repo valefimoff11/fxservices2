@@ -4,6 +4,9 @@ import io
 from itertools import chain
 from collections import deque
 
+import numpy as np
+import pandas as pd
+
 try:
     from reprlib import repr
 except ImportError:
@@ -15,6 +18,7 @@ def get_pandas_mem_profile(df):
 
     df_total_mem_size = sys.getsizeof(df)
     df_column_size = df.memory_usage(True, True)
+    df_total_mem_size2 = df_column_size.sum()
 
     buffer = io.StringIO()
     df.info(memory_usage='deep', buf=buffer)
@@ -22,7 +26,7 @@ def get_pandas_mem_profile(df):
 
     df_ref_count = sys.getrefcount(df) - 1
 
-    return df_total_mem_size, df_column_size, df_info, df_ref_count
+    return df_total_mem_size, df_total_mem_size2, df_column_size, df_info, df_ref_count
 
 
 def get_container_total_size(o, handlers={}, verbose=False):
@@ -92,7 +96,7 @@ if __name__ == '__main__':
 
     print(sys.getsizeof(b))
 
-    sys.exit()
+    #sys.exit()
 
     df1 = pd.DataFrame({
         'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
@@ -115,10 +119,16 @@ if __name__ == '__main__':
 
     print("")
 
-    print(df_mem_profile[2])
+    print(df_mem_profile[3])
 
     print("")
 
     #make use of the mem sizes of each column in the pandas dataframe
-    for index, value in df_mem_profile[1].items():
+    for index, value in df_mem_profile[2].items():
         print(f"Index : {index}, Value : {value}")
+
+    print("")
+
+    print(df_mem_profile[0])
+    print(df_mem_profile[1])
+
