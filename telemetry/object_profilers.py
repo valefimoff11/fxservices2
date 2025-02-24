@@ -15,10 +15,11 @@ except ImportError:
 def get_pandas_mem_profile(df):
     """ Returns the total size and object reference count of Pandas dataframe """
 
-    df_mem_size = sys.getsizeof(df)
+    df_total_mem_size = sys.getsizeof(df)
+    df_column_size = df.memory_usage(True, True)
     df_ref_count = sys.getrefcount(df) - 1
 
-    return df_mem_size, df_ref_count
+    return df_total_mem_size, df_column_size, df_ref_count
 
 
 def get_container_total_size(o, handlers={}, verbose=False):
@@ -62,8 +63,6 @@ def get_container_total_size(o, handlers={}, verbose=False):
     return sizeof(o)
 
 
-##### Example call #####
-
 if __name__ == '__main__':
 
     #d = dict(a=1, b=2, c=3, d=[4,5,6,7], e='a string of chars')
@@ -84,6 +83,9 @@ if __name__ == '__main__':
 
     print(get_container_total_size(input_ds, verbose=True))
 
-    print(sys.getrefcount(df1))
-    print(get_pandas_mem_profile(df1))
-    print(sys.getrefcount(df1))
+    df_mem_profile = get_pandas_mem_profile(df1)
+    print(df_mem_profile)
+
+    #get the mem sizes of each column in the pandas dataframe
+    for index, value in df_mem_profile[1].items():
+        print(f"Index : {index}, Value : {value}")
