@@ -4,9 +4,6 @@ import io
 from itertools import chain
 from collections import deque
 
-import numpy as np
-import pandas as pd
-
 try:
     from reprlib import repr
 except ImportError:
