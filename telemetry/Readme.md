@@ -4,9 +4,12 @@ OS memory:
     measure the total OS process ram and % utilization
 python heap memory:
     measure the mem increment of every line in code in function
-    snapshot measure all - periodically, and eventually filter some which are of specific interest
-    measure specific/named or registered (in a global registry) vars 
-    reference count
+    snapshot measure all - periodically, and eventually filter some which are of specific interest, sort in descending order, and e.g. top 10
+        - trace_malloc / pympler snapshots
+        - get all local and global vars and measure them with other APIs
+    - measure specific/named or registered (in a global registry) vars - pass the var to function to measure and log or decorate the functions during the 
+    execution of whcih to measure the registered vars
+    - reference count
 visualization:
     visualization of mem utilization over time
     visualization of object graphs
