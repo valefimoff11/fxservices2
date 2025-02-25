@@ -87,14 +87,43 @@ def get_container_total_size(o, handlers={}, verbose=False):
 if __name__ == '__main__':
 
     d1 = dict(a=1, b=2, c=3, d=[4,5,6,7], e='a string of chars')
-    print(get_container_total_size(d1, verbose=True))
+    print(get_container_total_size(d1, verbose=False))
 
     print("")
 
     d2 = dict(a=1, b=2, c=3, d=[4,5,6,7, 88, 222, 333, 37373, 777, 3333, 333, 333, 33], e='a string of chars')
-    print(get_container_total_size(d2, verbose=True))
+    print(get_container_total_size(d2, verbose=False))
 
     print("")
+
+    from pympler import asizeof
+    s = asizeof.asizeof(d1)
+    print(s)
+    s = asizeof.asizeof(d2)
+    print(s)
+
+    df1 = pd.DataFrame({
+        'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
+        'column_2': np.random.choice(['a', 'b', 'c'], 10 ** 6),
+        'column_3': np.random.choice(['a', 'b', 'c'], 10 ** 6)
+    })
+
+    s = asizeof.asizeof(df1)
+    print(s/1024/1024)
+
+    print()
+
+    df_mem_profile = get_pandas_mem_profile(df1)
+    print(df_mem_profile)
+
+    print()
+
+    print(asizeof.asized(df1, detail=1).format())
+    print()
+    print(asizeof.flatsize(df1, detail=1))
+
+
+    sys.exit()
 
     # Allocate a list with a range of numbers
     a = [i for i in range(10000)]
