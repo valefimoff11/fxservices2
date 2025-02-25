@@ -9,6 +9,8 @@ h=hpy()
 h.setrelheap()
 #h.setref()
 
+#add test with Pandas df read from file
+
 df1 = pd.DataFrame({
     'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
     'column_2': np.random.choice(['a', 'b', 'c'], 10 ** 6),
