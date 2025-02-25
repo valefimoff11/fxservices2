@@ -1,3 +1,26 @@
+key methods for PROFILING:
+
+OS memory:
+    measure the total OS process ram and % utilization
+python heap memory:
+    measure the mem increment of every line in code in function
+    snapshot measure all - periodically, and eventually filter some which are of specific interest
+    measure specific/named or registered (in a global registry) vars 
+    reference count
+visualization:
+    visualization of mem utilization over time
+    visualization of object graphs
+
+key methods for INTEGRATION - Telemetry Integration Methods:
+
+get all global vars/objects (and then filter on specific types) - same for class variables - reflection - then dedicated decorator to snapshot the vars
+get all local vars/objects (and then filter on specific types) - same for class variables - reflection - then dedicated decorator to snapshot the vars
+get all objects tracked by gc (and then filter on specific types)
+register object for tracking explicitly - then the sizes are tracked by dedicated decorator 
+decorate function (manual and automatic) - memory-profiler, pympler style snapshots
+
+all decorators - all to have on/off functionality by config - the entire profiling functionality
+
 Model Telemetry Development Plan:
 
 1. Assess and select the best Telemetry packages and APIs - ref below the list of candidates included in this task. Only one option/candidate
@@ -37,7 +60,6 @@ Data Profiling
             memory-profiler (not supported anymore)
             tracemalloc
             objgraph
-            stackimpact
             pyrasite
             guppy3
     
