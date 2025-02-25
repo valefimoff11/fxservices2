@@ -4,6 +4,8 @@ from guppy import hpy
 
 h=hpy()
 
+h.setrelheap()
+
 df1 = pd.DataFrame({
     'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
     'column_2': np.random.choice(['a', 'b', 'c'], 10 ** 6),
