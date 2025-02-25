@@ -2,10 +2,10 @@ key methods for PROFILING:
 
 Framework Technical Features:
 
-1. reflection - collect things to profile/measure and/or decorate with profiling capability 
-    module
+1. reflection - used for a) collect things to profile/measure and/or b) automatically (and transperantly for the end user) decorate with profiling capability 
+    inside module
     inside class
-2. decorators
+2. decorators (for function and class)
     manual
     automatically injected (through reflection and injection)
 3. snapshoting (and filtering out unesessary stuff)
