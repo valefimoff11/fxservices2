@@ -19,8 +19,10 @@ python heap memory:
         - trace_malloc / pympler snapshots
         - get all local and global vars and measure them with other APIs
     - measure specific/named or registered (in a global registry) vars - pass the var to function to measure and log or decorate the functions during the 
-    execution of whcih to measure the registered vars
-    - reference count
+    execution of whcih to measure the registered vars 
+reference counts
+    - absolute counts
+    - circular relationships
 visualization:
     visualization of mem utilization over time
     visualization of object graphs
