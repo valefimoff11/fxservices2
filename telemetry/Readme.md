@@ -9,7 +9,7 @@ Framework Technical Features:
     manual
     automatically injected (through reflection and injection)
 3. snapshoting (and filtering out unesessary stuff)
-4. standalone util functions for reuse as is an dexplictly 
+4. standalone util functions for reuse as is and explictly - to measure individual var  
 
 OS memory:
     measure the total OS process ram and % utilization
