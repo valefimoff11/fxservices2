@@ -21,6 +21,9 @@ df2 = pd.DataFrame({
     'column_3': np.random.choice(['a', 'b', 'c'], 10 ** 6)
 })
 
+dd = {"df1": df1, "df2": df2}
+
+
 after = h.heap()
 print(after)
 
@@ -29,3 +32,11 @@ delta = after - before
 print("printing the DELTA ######################")
 
 print(delta)
+
+print()
+
+
+print( h.heap().get_rp(40) )
+
+#import resource
+#print('Memory usage: %s (kb)' % resource.getrusage(resource.RUSAGE_SELF).ru_maxrss)
