@@ -13,6 +13,7 @@ h.setrelheap()
 #create profile set consisting of scalar float, string, list, dict, pandas, numpy array - and tehn compare how their SAME sizes
 #and types are profiled by different Profilers
 
+
 df1 = pd.DataFrame({
     'column_1': np.random.choice(['a', 'b', 'c'], 10 ** 6),
     'column_2': np.random.choice(['a', 'b', 'c'], 10 ** 6),

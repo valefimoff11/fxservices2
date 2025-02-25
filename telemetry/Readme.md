@@ -77,5 +77,10 @@ Data Profiling
             tracemalloc
             objgraph
             #pyrasite
-            #guppy3
+            guppy3
     
+poetry add <package-name>
+
+poetry install
+
+poetry python main.py
