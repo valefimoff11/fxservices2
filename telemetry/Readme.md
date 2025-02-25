@@ -84,3 +84,7 @@ poetry add <package-name>
 poetry install
 
 poetry python main.py
+
+#add test with Pandas df read from file
+#create profile set consisting of scalar float, string, list, dict, pandas, numpy array - and tehn compare how their SAME sizes
+#and types are profiled by different Profilers
