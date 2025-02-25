@@ -31,7 +31,6 @@ after = h.heap()
 print(after.all)
 print(len(after))
 
-sys.exit()
 
 print()
 print(h.iso(df2).sp)
@@ -44,6 +43,7 @@ print(after[0])
 print(after.bytype)
 print(after.byrcs)
 print(after.byid)
+print(after.byvia)
 
 delta = after - before
 
