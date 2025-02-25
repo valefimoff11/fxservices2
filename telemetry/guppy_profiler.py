@@ -43,7 +43,7 @@ print(after[0])
 print(after.bytype)
 print(after.byrcs)
 print(after.byid)
-print(after.byvia)
+print(after.byvia.all)
 
 delta = after - before
 
