@@ -1,9 +1,20 @@
 key methods for PROFILING:
 
+Framework Technical Features:
+
+1. reflection - collect things to profile/measure and/or decorate with profiling capability 
+    module
+    inside class
+2. decorators
+    manual
+    automatically injected (through reflection and injection)
+3. snapshoting (and filtering out unesessary stuff)
+4. standalone util functions for reuse as is an dexplictly 
+
 OS memory:
     measure the total OS process ram and % utilization
 python heap memory:
-    measure the mem increment of every line in code in function
+    measure the mem increment of every line in code in function - note this measures smaller Pandas (equivalent to not Deep)
     snapshot measure all - periodically, and eventually filter some which are of specific interest, sort in descending order, and e.g. top 10
         - trace_malloc / pympler snapshots
         - get all local and global vars and measure them with other APIs
@@ -63,6 +74,6 @@ Data Profiling
             memory-profiler (not supported anymore)
             tracemalloc
             objgraph
-            pyrasite
-            guppy3
+            #pyrasite
+            #guppy3
     
